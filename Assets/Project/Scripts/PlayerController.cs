@@ -14,5 +14,14 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetFloat("Speed", Input.GetAxis("Vertical"));
         animator.SetFloat("Direction", Input.GetAxis("Horizontal"));
+
+        /*if (Input.GetAxis("Horizontal") < -0.1)
+        {
+            animator.SetFloat("Direction", -1.0f);
+        }else if (Input.GetAxis("Horizontal")  > 0.1)
+        {
+            animator.SetFloat("Direction", 1.0f);
+        }else animator.SetFloat("Direction", 0.0f);*/
+
     }
 }

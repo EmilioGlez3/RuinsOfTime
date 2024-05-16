@@ -1142,6 +1142,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!4 &908881029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4461364618265501041, guid: c9b45f3381d2eff42a31abcc55168a8d, type: 3}
+  m_PrefabInstance: {fileID: 4830262909278380256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &954177019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1899,6 +1904,7 @@ GameObject:
   - component: {fileID: 1666343636}
   - component: {fileID: 1666343635}
   - component: {fileID: 1666343634}
+  - component: {fileID: 1666343637}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1973,13 +1979,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666343633}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.16415715, y: 0.72738826, z: -0.18690503, w: -0.6395509}
-  m_LocalPosition: {x: 18.620136, y: 9.6149025, z: 53.883068}
+  m_LocalRotation: {x: 0.23064417, y: 0, z: 0, w: 0.9730382}
+  m_LocalPosition: {x: 22.322979, y: 10.556754, z: 32.605125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.67, y: 0, z: 0}
+--- !u!114 &1666343637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666343633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7daa2d71b2dd3174998ff66d1d42d9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 908881029}
+  distance: -6
+  height: 3
+  smoothTime: 0.4
 --- !u!1 &1712819095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7669346698379929540, guid: 28fcb65f1a57ca64b913191566234ac8, type: 3}
@@ -2596,7 +2618,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: -0.37, y: 9.285755, z: 1.59}
+  m_Size: {x: 0.37, y: 9.285755, z: 1.59}
   m_Center: {x: 0.96, y: -0.00000023841852, z: 0.55}
 --- !u!65 &2075534348
 BoxCollider:
@@ -2617,7 +2639,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: -0.37, y: 9.285755, z: 1.59}
+  m_Size: {x: 0.37, y: 9.285755, z: 1.59}
   m_Center: {x: -0.77, y: -0.00000023841852, z: 0.55}
 --- !u!1001 &2127571967
 PrefabInstance:
