@@ -15,17 +15,21 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", Input.GetAxis("Vertical"));
         animator.SetFloat("Direction", Input.GetAxis("Horizontal"));
 
-        /*if (Input.GetAxis("Horizontal") < -0.1)
-        {
-            animator.SetFloat("Direction", -1.0f);
-        }else if (Input.GetAxis("Horizontal")  > 0.1)
-        {
-            animator.SetFloat("Direction", 1.0f);
-        }else animator.SetFloat("Direction", 0.0f);*/
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("Jump");
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            animator.SetTrigger("FlyingKick");
+            animator.SetBool("Action", true);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            animator.SetBool("Action", true);
+        }else if (Input.GetKeyDown(KeyCode.G))
+        {
+            animator.SetBool("Action", false);
         }
 
     }
