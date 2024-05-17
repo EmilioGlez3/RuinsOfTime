@@ -23,5 +23,10 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Direction", 1.0f);
         }else animator.SetFloat("Direction", 0.0f);*/
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("Jump");
+        }
+
     }
 }
