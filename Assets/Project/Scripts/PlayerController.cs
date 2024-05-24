@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
-    public GameObject cube;
     void Start()
     {
         animator = GetComponent<Animator>();
