@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.Playables;//Para Timeline
 
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
+    public GameObject cube;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -31,6 +33,5 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Action", false);
         }
-
     }
 }
