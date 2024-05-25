@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //using UnityEngine.Playables;//Para Timeline
 
 public class PlayerController : MonoBehaviour
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour
 
     bool isGounded;
 
+    public Image vidaAriz;
+    public float vidaMaxima;
+    public float vidaActual;
+
     private Animator animator;
     void Start()
     {
@@ -31,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        vidaAriz.fillAmount = vidaActual / vidaMaxima;
 
         isGounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
