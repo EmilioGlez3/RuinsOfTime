@@ -11,6 +11,18 @@ public class PlayerController : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
     public Transform cam;
+
+    public float gravity = -9.8f;
+    public float jumpHeight = 3f;
+
+    public Transform groundCheck;
+    public float groundDistance = 0.1f;
+    public LayerMask groundMask;
+
+    Vector3 velocity;
+
+    bool isGounded;
+
     /*private Animator animator;
     void Start()
     {
@@ -19,10 +31,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        isGounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if(isGounded && velocity.y < 0f)
+        {
+            velocity.y = -2f;
+        }
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+
 
         if(direction.magnitude >= 0.1f)
         {
@@ -32,6 +53,15 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+
+        if (Input.GetButtonDown("Jump") && isGounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
         
         //animator.SetFloat("Speed", Input.GetAxis("Vertical"));
         //animator.SetFloat("Direction", Input.GetAxis("Horizontal"));
