@@ -2610,7 +2610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601766032}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15876445, y: 0.000000018993319, z: -0.0000000030542022, w: 0.9873165}
+  m_LocalRotation: {x: 0.15876445, y: -0.000000018993322, z: 0.000000003054203, w: 0.9873165}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4200,7 +4200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079683625}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17669696, y: 0.00000001693564, z: -0.0000000030403142, w: 0.9842653}
+  m_LocalRotation: {x: 0.17669697, y: -0.00000001693565, z: 0.0000000030403158, w: 0.9842653}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6590,7 +6590,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666343633}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15876445, y: 0.000000035021955, z: -0.000000005631671, w: 0.9873165}
+  m_LocalRotation: {x: 0.15876445, y: -0.000000035021955, z: 0.000000005631671, w: 0.9873165}
   m_LocalPosition: {x: 22.28, y: 9.82, z: 37.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6868,7 +6868,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767925224}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000002022038, y: 0.9719873, z: -0.23503356, w: -0.000000008362193}
+  m_LocalRotation: {x: 0.000000002022038, y: 0.9719873, z: -0.23503356, w: 0.000000008362193}
   m_LocalPosition: {x: -14.362285, y: -10.877016, z: -91.27855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14414,20 +14414,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2759346090365658152, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: m_StoppingDistance
-      value: 1.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6601014415975943405, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: door
       value: 
       objectReference: {fileID: 1440514798}
-    - target: {fileID: 6601014415975943405, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
-      propertyPath: patrolArea.x
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6601014415975943405, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
-      propertyPath: patrolArea.y
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 8584166306772905217, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: m_Name
       value: Guardian
