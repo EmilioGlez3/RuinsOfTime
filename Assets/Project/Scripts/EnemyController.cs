@@ -24,12 +24,21 @@ public class EnemyController : MonoBehaviour
 
         transformPlayer = GameObject.FindGameObjectWithTag("Player").transform;
         currentState = EnemyState.PATROL;
-        InvokeRepeating("GeneratePatrolPosition", 0f, 5f);//Se debe de quitar para los demas estados
+        InvokeRepeating("GeneratePatrolPosition", 0f, 5f);
+        InvokeRepeating("Attack", 0f, 2f);
     }
 
     public void GeneratePatrolPosition()
     {
         destinationPoint = transform.position + (Vector3.right * Random.Range(-patrolArea.x, patrolArea.x)) + (Vector3.forward * Random.Range(-patrolArea.y, patrolArea.y));
+    }
+
+    public void Attack()
+    {
+        if (Vector3.Distance(transform.position, transformPlayer.position) < 3)
+        {
+            enemyAnimator.SetTrigger("Attack");
+        }
     }
 
     void Update()
@@ -57,6 +66,5 @@ public class EnemyController : MonoBehaviour
 public enum EnemyState
 {
     PATROL,
-    CHASE,
-    ATTACK
+    CHASE
 }
