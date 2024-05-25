@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     bool isGounded;
 
     private Animator animator;
-    float movement;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -43,8 +42,6 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        movement = horizontal + vertical;
-
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
 
@@ -55,24 +52,23 @@ public class PlayerController : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
-        }
+            animator.SetBool("Run", true);
+        }else animator.SetBool("Run", false);
 
         if (Input.GetButtonDown("Jump") && isGounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            animator.SetTrigger("Jump");
+        }
+
+        if (Input.GetButtonDown("Fire2") && animator.GetBool("Run"))
+        {
+            animator.SetTrigger("FlyingKick");
         }
 
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-        
-        if (movement != 0f)
-        {
-            animator.SetBool("Run", true);
-        }else animator.SetBool("Run", false);
-
-        //animator.SetFloat("Speed", Input.GetAxis("Vertical"));
-        //animator.SetFloat("Direction", Input.GetAxis("Horizontal"));
 
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
