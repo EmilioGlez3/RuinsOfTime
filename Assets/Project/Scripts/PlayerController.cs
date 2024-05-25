@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,18 +6,37 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator animator;
+    public CharacterController controller;
+    public float speed = 5f;
+    public float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
+    public Transform cam;
+    /*private Animator animator;
     void Start()
     {
         animator = GetComponent<Animator>();
-    }
+    }*/
 
     void Update()
     {
-        animator.SetFloat("Speed", Input.GetAxis("Vertical"));
-        animator.SetFloat("Direction", Input.GetAxis("Horizontal"));
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+
+        if(direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime); 
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        }
+        
+        //animator.SetFloat("Speed", Input.GetAxis("Vertical"));
+        //animator.SetFloat("Direction", Input.GetAxis("Horizontal"));
+
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("Jump");
         }
@@ -31,6 +51,6 @@ public class PlayerController : MonoBehaviour
         }else if (Input.GetKeyDown(KeyCode.G))
         {
             animator.SetBool("Action", false);
-        }
+        }*/
     }
 }
