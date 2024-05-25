@@ -23,11 +23,12 @@ public class PlayerController : MonoBehaviour
 
     bool isGounded;
 
-    /*private Animator animator;
+    private Animator animator;
+    float movement;
     void Start()
     {
         animator = GetComponent<Animator>();
-    }*/
+    }
 
     void Update()
     {
@@ -41,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
+        movement = horizontal + vertical;
 
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
@@ -63,6 +66,11 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
         
+        if (movement != 0f)
+        {
+            animator.SetBool("Run", true);
+        }else animator.SetBool("Run", false);
+
         //animator.SetFloat("Speed", Input.GetAxis("Vertical"));
         //animator.SetFloat("Direction", Input.GetAxis("Horizontal"));
 
