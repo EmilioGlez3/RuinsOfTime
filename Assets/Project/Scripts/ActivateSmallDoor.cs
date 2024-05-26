@@ -19,6 +19,8 @@ public class ActivateSmallDoor : MonoBehaviour
     public float speed = 1f;
     private bool door = false;
 
+    public Animator animator;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Objeto"))
@@ -32,6 +34,7 @@ public class ActivateSmallDoor : MonoBehaviour
                 door = true;
                 orbe.SetActive(false);
                 lights.SetActive(true);
+                animator.SetTrigger("Leave");
             }
         }
     }
