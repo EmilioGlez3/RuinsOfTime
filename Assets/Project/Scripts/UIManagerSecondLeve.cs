@@ -12,6 +12,7 @@ public class UIManagerSecondLeve : MonoBehaviour
     public GameObject controlScreenMM;
     public GameObject controlScreenMP;
     public GameObject audioScreen;
+    public GameObject comingSoon;
     void Start()
     {
         InitLevel();
@@ -25,6 +26,7 @@ public class UIManagerSecondLeve : MonoBehaviour
         controlScreenMM.SetActive(false);
         controlScreenMP.SetActive(false);
         audioScreen.SetActive(false);
+        comingSoon.SetActive(false);
     }
 
     public void ShowMainMenuScreen()
