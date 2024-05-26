@@ -5,11 +5,14 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class ActivateBigDoor : MonoBehaviour
+public class ActivateSmallDoor : MonoBehaviour
 {
-    private GameObject Activate1 = null;
+    private GameObject Activate = null;
     public GameObject cam;
-    public GameObject bigDoor;
+    public GameObject smallDoor;
+
+    public GameObject orbe;
+    public GameObject lights;
 
     private Vector3 DoorPosition;
     public GameObject TargetPosition;
@@ -20,13 +23,15 @@ public class ActivateBigDoor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Objeto"))
         {
-            if (Activate1 == null)
+            if (Activate == null)
             {
                 other.GetComponent<Rigidbody>().useGravity = false;
                 other.GetComponent<Rigidbody>().isKinematic = true;
-                Activate1 = other.gameObject;
+                Activate = other.gameObject;
                 cam.GetComponent<CinemachineVirtualCamera>().Priority = 11;
                 door = true;
+                orbe.SetActive(false);
+                lights.SetActive(true);
             }
         }
     }
@@ -35,16 +40,16 @@ public class ActivateBigDoor : MonoBehaviour
     {
         if (door)
         {
-            DoorPosition = TargetPosition.transform.position - bigDoor.transform.position;
+            DoorPosition = TargetPosition.transform.position - smallDoor.transform.position;
             if (DoorPosition.y < -0.1)
             {
-                bigDoor.transform.position += DoorPosition.normalized * speed * Time.deltaTime;
+                smallDoor.transform.position += DoorPosition.normalized * speed * Time.deltaTime;
             }
             else
             {
                 cam.GetComponent<CinemachineVirtualCamera>().Priority = 10;
                 door = false;
-                bigDoor.SetActive(false);
+                smallDoor.SetActive(false);
             }
         }
     }
