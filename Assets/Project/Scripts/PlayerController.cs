@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 //using UnityEngine.Playables;//Para Timeline
 
@@ -27,6 +28,9 @@ public class PlayerController : MonoBehaviour
     public Image vidaAriz;
     public float vidaMaxima;
     public float vidaActual;
+    private bool dead = false;
+    public GameObject liveID;
+    public PlayableDirector director;
 
     private Animator animator;
 
@@ -93,10 +97,13 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("FlyingKick");
         }
         //Contador vida y morir
-        if (vidaActual <= 0f)
+        if (vidaActual <= 0f && dead == false)
         {
             animator.SetTrigger("Dead");
+            director.Play();
             Debug.Log("Moristes");
+            liveID.SetActive(false);
+            dead = true;
         }
 
         //Fisica de movimientos

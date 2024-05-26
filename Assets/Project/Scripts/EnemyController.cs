@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
 
     //Cosecha
     public GameObject door;
+    public GameObject liveID;
 
 
     void Start()
@@ -35,15 +36,19 @@ public class EnemyController : MonoBehaviour
 
     public void Attack()
     {
-        if (Vector3.Distance(transform.position, transformPlayer.position) < 3)
+        if (Vector3.Distance(transform.position, transformPlayer.position) < 3 && liveID.activeInHierarchy == true)
         {
             enemyAnimator.SetTrigger("Attack");
+        }
+        if (liveID.activeInHierarchy == false)
+        {
+            currentState = EnemyState.PATROL;
         }
     }
 
     void Update()
     {
-        if (door.activeInHierarchy == false)
+        if (door.activeInHierarchy == false && liveID.activeInHierarchy == true)
         {
             if (currentState != EnemyState.CHASE)
             {
