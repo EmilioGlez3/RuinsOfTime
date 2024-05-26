@@ -29,10 +29,29 @@ public class PlayerController : MonoBehaviour
     public float vidaActual;
 
     private Animator animator;
+
+    //public GameObject handPoint;
+    //private GameObject pickedObject = null;
+
     void Start()
     {
         animator = GetComponent<Animator>();
     }
+
+    /*private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Objeto"))
+        {
+            if (Input.GetKey(KeyCode.E) && pickedObject == null)
+            {
+                other.GetComponent<Rigidbody>().useGravity = false;
+                other.GetComponent<Rigidbody>().isKinematic = true;
+                other.transform.position = handPoint.transform.position;
+                other.gameObject.transform.SetParent(handPoint.gameObject.transform);
+                pickedObject = other.gameObject;
+            }
+        }
+    }*/
 
     void Update()
     {
@@ -75,22 +94,5 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            animator.SetTrigger("Jump");
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            animator.SetTrigger("FlyingKick");
-            animator.SetBool("Action", true);
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            animator.SetBool("Action", true);
-        }else if (Input.GetKeyDown(KeyCode.G))
-        {
-            animator.SetBool("Action", false);
-        }*/
     }
 }
