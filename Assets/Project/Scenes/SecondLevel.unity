@@ -391,11 +391,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8585050622280689347, guid: 166d308a2e01bd04289bade292cd8e79, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000085174525
+      value: 0.0000000085174525
       objectReference: {fileID: 0}
     - target: {fileID: 8585050622280689347, guid: 166d308a2e01bd04289bade292cd8e79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000012115638
+      value: -0.0000000012115638
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7008,6 +7008,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1309532412644885865, guid: 0e24546cc88b434478ebdd4fda08f59b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8c74e24c76bcb4f48bd49cdf2867ee44, type: 2}
     - target: {fileID: 1619874141689007899, guid: 0e24546cc88b434478ebdd4fda08f59b, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -7310,6 +7314,8 @@ MonoBehaviour:
   vidaAriz: {fileID: 0}
   vidaMaxima: 0
   vidaActual: 0
+  liveID: {fileID: 0}
+  director: {fileID: 0}
 --- !u!1001 &1609176344
 PrefabInstance:
   m_ObjectHideFlags: 0

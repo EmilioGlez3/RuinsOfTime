@@ -1281,8 +1281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49.39, y: 47.68}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 11.52, y: 103.2}
+  m_SizeDelta: {x: 236.8, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &218902323
 MonoBehaviour:
@@ -1308,8 +1308,8 @@ MonoBehaviour:
 
     OVER'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5d2b994ae6fb42b40b2530b8ff43206e, type: 2}
+  m_sharedMaterial: {fileID: -3300628998276974562, guid: 5d2b994ae6fb42b40b2530b8ff43206e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1333,8 +1333,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5823,7 +5823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2934926800849530889, guid: 2731695c287ccaa46a10e6999cbebac8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7518838809223534051, guid: 2731695c287ccaa46a10e6999cbebac8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7761,7 +7761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035293889}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14082696, y: 0.000000017034907, z: -0.0000000024231226, w: 0.9900342}
+  m_LocalRotation: {x: 0.14082696, y: -0.000000017034903, z: 0.000000002423122, w: 0.9900342}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13604,7 +13604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1886800032
 MonoBehaviour:
   m_ObjectHideFlags: 0
