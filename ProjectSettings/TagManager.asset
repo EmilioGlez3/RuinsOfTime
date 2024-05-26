@@ -5,9 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Orbe1
-  - Orbe3
   - Objeto
+  - Salud
   layers:
   - Default
   - TransparentFX

@@ -30,6 +30,15 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+    //Recoger Salud
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Salud"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -37,20 +46,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //Barra de salud
         vidaAriz.fillAmount = vidaActual / vidaMaxima;
 
+        //Física saltos
         isGounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
         if(isGounded && velocity.y < 0f)
         {
             velocity.y = -2f;
         }
 
+        //Movimiento
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
-
 
         if(direction.magnitude >= 0.1f)
         {
@@ -62,19 +71,20 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Run", true);
         }else animator.SetBool("Run", false);
 
+        // Accion Saltar
         if (Input.GetButtonDown("Jump") && isGounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             animator.SetTrigger("Jump");
         }
-
+        //Accion patada
         if (Input.GetButtonDown("Fire2") && animator.GetBool("Run"))
         {
             animator.SetTrigger("FlyingKick");
         }
 
+        //Fisica de movimientos
         velocity.y += gravity * Time.deltaTime;
-
         controller.Move(velocity * Time.deltaTime);
     }
 }
