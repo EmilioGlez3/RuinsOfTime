@@ -91,6 +91,11 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             animator.SetTrigger("Jump");
         }
+        //Accion golpe
+        if (Input.GetButtonDown("Fire1"))
+        {
+            animator.SetTrigger("Attack");
+        }
         //Accion patada
         if (Input.GetButtonDown("Fire2") && animator.GetBool("Run"))
         {
@@ -101,7 +106,6 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("Dead");
             director.Play();
-            Debug.Log("Moristes");
             liveID.SetActive(false);
             dead = true;
         }

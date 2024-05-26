@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     public float vidaMax;
     public float vidaActual;
     private bool dead = false;
+    private bool deadID = false;
     public GameObject enemyLiveID;
 
     public GameObject orbe;
@@ -56,11 +57,11 @@ public class EnemyController : MonoBehaviour
 
     public void Attack()
     {
-        if (Vector3.Distance(transform.position, transformPlayer.position) < 3 && liveID.activeInHierarchy == true)
+        if (Vector3.Distance(transform.position, transformPlayer.position) < 3 && liveID.activeInHierarchy == true && dead == false)
         {
             enemyAnimator.SetTrigger("Attack");
         }
-        if (liveID.activeInHierarchy == false)
+        if (liveID.activeInHierarchy == false && dead == false)
         {
             currentState = EnemyState.PATROL;
         }
@@ -68,35 +69,42 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        vidaEnemy.fillAmount = vidaActual / vidaMax;
-        if (door.activeInHierarchy == false && liveID.activeInHierarchy == true)
+        if (dead == false)
         {
-            if (currentState != EnemyState.CHASE)
+            vidaEnemy.fillAmount = vidaActual / vidaMax;
+            if (door.activeInHierarchy == false && liveID.activeInHierarchy == true)
             {
-                currentState = EnemyState.CHASE; ;
+                if (currentState != EnemyState.CHASE)
+                {
+                    currentState = EnemyState.CHASE; ;
+                }
+            }
+
+            if (currentState == EnemyState.PATROL)
+            {
+                agent.SetDestination(destinationPoint);
+            }
+            else if (currentState == EnemyState.CHASE)
+            {
+                agent.SetDestination(transformPlayer.position);
+            }
+            enemyAnimator.SetFloat("Speed", agent.velocity.sqrMagnitude);
+
+            //Contador vida y morir
+            if (vidaActual <= 0f && dead == false)
+            {
+                orbe.SetActive(true);
+                enemyAnimator.SetFloat("Speed", 0f);
+                enemyAnimator.SetTrigger("Dead");
+                enemyLiveID.SetActive(false);//Tal vez no se necesite
+                dead = true;
+                deadID = true;
             }
         }
-
-        if (currentState == EnemyState.PATROL)
+        else if (dead == true && deadID == true)
         {
-            agent.SetDestination(destinationPoint);
+            deadID = false;
         }
-        else if (currentState == EnemyState.CHASE)
-        {
-            agent.SetDestination(transformPlayer.position);
-        }
-        enemyAnimator.SetFloat("Speed", agent.velocity.sqrMagnitude);
-
-        //Contador vida y morir
-        if (vidaActual <= 0f && dead == false)
-        {
-            orbe.SetActive(true);
-            enemyAnimator.SetTrigger("Dead");//Falta animación muerte
-            Debug.Log("Se murio este perro");
-            enemyLiveID.SetActive(false);
-            dead = true;
-        }
-
     }
 }
 
