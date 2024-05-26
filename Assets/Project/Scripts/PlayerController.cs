@@ -32,17 +32,24 @@ public class PlayerController : MonoBehaviour
     public GameObject liveID;
     public PlayableDirector director;
 
-    private Animator animator;
+    public Image Meds;
+    private int numMeds = 0;
+    private int maxMeds = 4;
+    private float numMedsUI = 0.0f;
+    private float maxMedsUI = 100f;
 
-    private int countSalud = 0;
+    private Animator animator;
 
     private void OnTriggerEnter(Collider other)
     {
         //Recoger Salud
         if (other.CompareTag("Salud"))
         {
-            countSalud++;
-            Destroy(other.gameObject);
+            if (numMeds < maxMeds)
+            {
+                RecogerSalud();
+                Destroy(other.gameObject);
+            }
         }
 
         //Pelea
@@ -51,6 +58,19 @@ public class PlayerController : MonoBehaviour
             vidaActual = vidaActual - 30;
         }
 
+    }
+
+    private void RecogerSalud ()
+    {
+        numMeds = numMeds + 1;
+        numMedsUI = numMedsUI + 25f;
+    }
+
+    private void CargarSalud()
+    {
+        vidaActual = vidaActual + 20;
+        numMeds = numMeds - 1;
+        numMedsUI = numMedsUI - 25f;
     }
 
     void Start()
@@ -62,6 +82,7 @@ public class PlayerController : MonoBehaviour
     {
         //Barra de salud
         vidaAriz.fillAmount = vidaActual / vidaMaxima;
+        Meds.fillAmount = numMedsUI / maxMedsUI;
 
         //Física saltos
         isGounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -100,6 +121,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && animator.GetBool("Run"))
         {
             animator.SetTrigger("FlyingKick");
+        }
+        //Accion curar
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (numMeds > 0 && vidaActual < vidaMaxima)
+            {
+                CargarSalud();
+            }
         }
         //Contador vida y morir
         if (vidaActual <= 0f && dead == false)

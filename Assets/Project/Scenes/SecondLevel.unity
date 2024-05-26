@@ -391,11 +391,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8585050622280689347, guid: 166d308a2e01bd04289bade292cd8e79, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000085174525
+      value: -0.0000000085174525
       objectReference: {fileID: 0}
     - target: {fileID: 8585050622280689347, guid: 166d308a2e01bd04289bade292cd8e79, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000012115638
+      value: 0.0000000012115638
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3420,6 +3420,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8779368218155402661, guid: df1b24eb73d31a4438508086c1288ade, type: 3}
   m_PrefabInstance: {fileID: 810438538}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &810438542 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5966274679365106423, guid: df1b24eb73d31a4438508086c1288ade, type: 3}
+  m_PrefabInstance: {fileID: 810438538}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &812173142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7061,6 +7072,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 600001960}
     - target: {fileID: 4015830519312303859, guid: 0e24546cc88b434478ebdd4fda08f59b, type: 3}
+      propertyPath: Meds
+      value: 
+      objectReference: {fileID: 810438542}
+    - target: {fileID: 4015830519312303859, guid: 0e24546cc88b434478ebdd4fda08f59b, type: 3}
       propertyPath: vidaAriz
       value: 
       objectReference: {fileID: 810438540}
@@ -7316,6 +7331,7 @@ MonoBehaviour:
   vidaActual: 0
   liveID: {fileID: 0}
   director: {fileID: 0}
+  Meds: {fileID: 0}
 --- !u!1001 &1609176344
 PrefabInstance:
   m_ObjectHideFlags: 0
