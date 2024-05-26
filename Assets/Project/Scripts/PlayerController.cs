@@ -30,13 +30,23 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
-    //Recoger Salud
+    private int countSalud = 0;
+
     private void OnTriggerEnter(Collider other)
     {
+        //Recoger Salud
         if (other.CompareTag("Salud"))
         {
+            countSalud++;
             Destroy(other.gameObject);
         }
+
+        //Pelea
+        if (other.CompareTag("ArmaEnemy"))
+        {
+            vidaActual = vidaActual - 30;
+        }
+
     }
 
     void Start()
@@ -81,6 +91,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && animator.GetBool("Run"))
         {
             animator.SetTrigger("FlyingKick");
+        }
+        //Contador vida y morir
+        if (vidaActual <= 0f)
+        {
+            animator.SetTrigger("Dead");
+            Debug.Log("Moristes");
         }
 
         //Fisica de movimientos
