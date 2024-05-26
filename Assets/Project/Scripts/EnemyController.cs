@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -17,6 +18,25 @@ public class EnemyController : MonoBehaviour
     public GameObject door;
     public GameObject liveID;
 
+    public Image vidaEnemy;
+    public float vidaMax;
+    public float vidaActual;
+    private bool dead = false;
+    public GameObject enemyLiveID;
+
+    public GameObject orbe;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ArmaAriz"))
+        {
+            vidaActual = vidaActual - 30f;
+        }
+        if (other.CompareTag("Patada"))
+        {
+            vidaActual = vidaActual - 5f;
+        }
+    }
 
     void Start()
     {
@@ -48,6 +68,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        vidaEnemy.fillAmount = vidaActual / vidaMax;
         if (door.activeInHierarchy == false && liveID.activeInHierarchy == true)
         {
             if (currentState != EnemyState.CHASE)
@@ -65,6 +86,17 @@ public class EnemyController : MonoBehaviour
             agent.SetDestination(transformPlayer.position);
         }
         enemyAnimator.SetFloat("Speed", agent.velocity.sqrMagnitude);
+
+        //Contador vida y morir
+        if (vidaActual <= 0f && dead == false)
+        {
+            orbe.SetActive(true);
+            enemyAnimator.SetTrigger("Dead");//Falta animación muerte
+            Debug.Log("Se murio este perro");
+            enemyLiveID.SetActive(false);
+            dead = true;
+        }
+
     }
 }
 

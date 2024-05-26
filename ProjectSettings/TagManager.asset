@@ -8,6 +8,8 @@ TagManager:
   - Objeto
   - Salud
   - ArmaEnemy
+  - ArmaAriz
+  - Patada
   layers:
   - Default
   - TransparentFX
