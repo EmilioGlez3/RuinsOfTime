@@ -30,28 +30,10 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
-    //public GameObject handPoint;
-    //private GameObject pickedObject = null;
-
     void Start()
     {
         animator = GetComponent<Animator>();
     }
-
-    /*private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Objeto"))
-        {
-            if (Input.GetKey(KeyCode.E) && pickedObject == null)
-            {
-                other.GetComponent<Rigidbody>().useGravity = false;
-                other.GetComponent<Rigidbody>().isKinematic = true;
-                other.transform.position = handPoint.transform.position;
-                other.gameObject.transform.SetParent(handPoint.gameObject.transform);
-                pickedObject = other.gameObject;
-            }
-        }
-    }*/
 
     void Update()
     {
