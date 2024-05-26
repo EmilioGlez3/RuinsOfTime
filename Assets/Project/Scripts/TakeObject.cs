@@ -9,12 +9,15 @@ public class TakeObject : MonoBehaviour
     public GameObject handPoint;
     private GameObject pickedObject = null;
 
+    public Animator animator;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Objeto"))
         {
             if (Input.GetKey(KeyCode.E) && pickedObject == null)
             {
+                animator.SetTrigger("Take");
                 other.GetComponent<Rigidbody>().useGravity = false;
                 other.GetComponent<Rigidbody>().isKinematic = true;
                 other.transform.position = handPoint.transform.position;
@@ -30,6 +33,7 @@ public class TakeObject : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.R))
             {
+                animator.SetTrigger("Leave");
                 pickedObject.GetComponent<Rigidbody>().useGravity = true;
                 pickedObject.GetComponent<Rigidbody>().isKinematic = false;
                 pickedObject.gameObject.transform.SetParent(null);
