@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class UIManager : MonoBehaviour
     public GameObject controlScreenMM;
     public GameObject controlScreenMP;
     public GameObject audioScreen;
+
+    public PlayableDirector director;
     void Start()
     {
         ShowMainMenuScreen();
@@ -33,12 +36,20 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    public void ShowHUDScreen()
+    public void InitGame()
+    {
+        cleanScreen();
+        director.Play();
+        HUDScreen.SetActive(true);
+    }
+
+    public void ResumeGame()
     {
         cleanScreen();
         HUDScreen.SetActive(true);
         Time.timeScale = 1.0f;
     }
+
 
     public void ShowPauseScreen()
     {
