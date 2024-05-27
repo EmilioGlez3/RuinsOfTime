@@ -14,8 +14,16 @@ public class UIManager : MonoBehaviour
     public GameObject audioScreen;
 
     public PlayableDirector director;
+
+    //Audios
+    public AudioSource AudioSource;
+    public AudioClip audioClip;
+
     void Start()
     {
+        //Audio
+        AudioSource.clip = audioClip;
+        //Pantallas
         ShowMainMenuScreen();
     }
 
@@ -32,13 +40,29 @@ public class UIManager : MonoBehaviour
     public void ShowMainMenuScreen()
     {
         cleanScreen();
+        AudioSource.Play();
         mainMenuScreen.SetActive(true);
         Time.timeScale = 1.0f;
+    }
+
+    public void ShowMainMenuScreenOtherMenu()
+    {
+        cleanScreen();
+        mainMenuScreen.SetActive(true);
+        Time.timeScale = 1.0f;
+    }
+
+    public void ShowPauseScreenOtherMenu()
+    {
+        cleanScreen();
+        pauseScreen.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
     public void InitGame()
     {
         cleanScreen();
+        AudioSource.Stop();
         director.Play();
         HUDScreen.SetActive(true);
     }
@@ -46,6 +70,7 @@ public class UIManager : MonoBehaviour
     public void ResumeGame()
     {
         cleanScreen();
+        AudioSource.Stop();
         HUDScreen.SetActive(true);
         Time.timeScale = 1.0f;
     }
@@ -54,6 +79,7 @@ public class UIManager : MonoBehaviour
     public void ShowPauseScreen()
     {
         cleanScreen();
+        AudioSource.Play();
         pauseScreen.SetActive(true);
         Time.timeScale = 0.0f;
     }
@@ -88,6 +114,14 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         Application.Quit();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ShowPauseScreen();
+        }
     }
 
 }
