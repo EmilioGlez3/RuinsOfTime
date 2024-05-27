@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManagerSecondLeve : MonoBehaviour
 {
@@ -15,14 +17,46 @@ public class UIManagerSecondLeve : MonoBehaviour
     public GameObject comingSoon;
     private bool pausa = false;
 
+    //Personaje en pausa
+    public GameObject personaje;
+
     //Audio
     public AudioSource audioSource;
     public AudioClip audioClip;
+
+    //Control de audio 
+    public Slider musicSlider;
+    public Slider sfxSlider;
+    private float musicVolume;
+    private float sfxVolume;
+    public AudioMixer audioMixer;
 
     void Start()
     {
         audioSource.clip = audioClip;
         InitLevel();
+        GetVolumes();
+    }
+
+    public void GetVolumes()
+    {
+        audioMixer.GetFloat("MusicVolume", out musicVolume);
+        audioMixer.GetFloat("SFXVolume", out sfxVolume);
+
+        musicSlider.value = musicVolume;
+        sfxSlider.value = sfxVolume;
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicVolume = volume;
+        audioMixer.SetFloat("MusicVolume", musicVolume);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        sfxVolume = volume;
+        audioMixer.SetFloat("SFXVolume", sfxVolume);
     }
 
     public void cleanScreen()
@@ -39,6 +73,7 @@ public class UIManagerSecondLeve : MonoBehaviour
     public void ShowMainMenuScreen()
     {
         cleanScreen();
+        personaje.SetActive(false);
         audioSource.Play();
         mainMenuScreen.SetActive(true);
         Time.timeScale = 1.0f;
@@ -47,6 +82,7 @@ public class UIManagerSecondLeve : MonoBehaviour
     public void InitLevel()
     {
         cleanScreen();
+        personaje.SetActive(true);
         HUDScreen.SetActive(true);
     }
 
@@ -57,6 +93,7 @@ public class UIManagerSecondLeve : MonoBehaviour
         HUDScreen.SetActive(true);
         Time.timeScale = 1.0f;
         pausa = false;
+        personaje.SetActive(true);
     }
 
 
@@ -67,6 +104,7 @@ public class UIManagerSecondLeve : MonoBehaviour
         pauseScreen.SetActive(true);
         Time.timeScale = 0.0f;
         pausa = true;
+        personaje.SetActive(false);
     }
 
     public void ShowControlScreenMM()

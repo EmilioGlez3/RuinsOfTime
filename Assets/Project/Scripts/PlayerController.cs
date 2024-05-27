@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private float maxMedsUI = 100f;
 
     private Animator animator;
+    public GameObject personajeID;
 
     //Audios
     public AudioSource audioSourceFondo;
@@ -157,7 +158,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
-        if(direction.magnitude >= 0.1f)
+        if(direction.magnitude >= 0.1f && personajeID.activeInHierarchy == true)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime); 
@@ -168,18 +169,19 @@ public class PlayerController : MonoBehaviour
         }else animator.SetBool("Run", false);
 
         // Accion Saltar
-        if (Input.GetButtonDown("Jump") && isGounded)
+        if (Input.GetButtonDown("Jump") && isGounded && personajeID.activeInHierarchy == true)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             animator.SetTrigger("Jump");
         }
         //Accion golpe
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && personajeID.activeInHierarchy == true)
         {
+            this.gameObject.SendMessage("AttackSFX");
             animator.SetTrigger("Attack");
         }
         //Accion patada
-        if (Input.GetButtonDown("Fire2") && animator.GetBool("Run"))
+        if (Input.GetButtonDown("Fire2") && animator.GetBool("Run") && personajeID.activeInHierarchy == true)
         {
             animator.SetTrigger("FlyingKick");
         }
