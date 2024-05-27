@@ -48,6 +48,11 @@ public class PlayerController : MonoBehaviour
     private bool music = false;
     private bool music2 = false;
 
+    //Pasos
+    public AudioSource audioSourcePasos;
+    public AudioClip[] audioClipPasos;
+    private bool onMovement = false;
+
     //Verificacion segunda escena
     public GameObject segEscena;
 
@@ -123,22 +128,34 @@ public class PlayerController : MonoBehaviour
             if (Ariz.transform.position.z > -14.5f && music == false)
             {
                 JungleMusic();
+                audioSourcePasos.Stop();
+                onMovement = false;
+                audioSourcePasos.clip = audioClipPasos[0];
             }
             else if (Ariz.transform.position.z <= -14.5 && music == true)
             {
                 CaveMusic();
+                audioSourcePasos.Stop();
+                onMovement = false;
+                audioSourcePasos.clip = audioClipPasos[1];
             }
         }
         else if (segEscena.activeInHierarchy == false)
         {
             //Audio segunda escena
-            if (Ariz.transform.position.z < 76 && music2 == false)
+            if (Ariz.transform.position.z < 77 && music2 == false)
             {
                 CaveMusic();
+                audioSourcePasos.Stop();
+                onMovement = false;
+                audioSourcePasos.clip = audioClipPasos[1];
             }
-            else if (Ariz.transform.position.z >= 76 && music2 == true)
+            else if (Ariz.transform.position.z >= 77 && music2 == true)
             {
                 WindMusic();
+                audioSourcePasos.Stop();
+                onMovement = false;
+                audioSourcePasos.clip = audioClipPasos[2];
             }
         }
 
@@ -160,13 +177,27 @@ public class PlayerController : MonoBehaviour
 
         if(direction.magnitude >= 0.1f && personajeID.activeInHierarchy == true)
         {
+            if (onMovement == false)
+            {
+                audioSourcePasos.Play();
+                onMovement = true;
+            }
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime); 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
             animator.SetBool("Run", true);
-        }else animator.SetBool("Run", false);
+        }
+        else
+        {
+            animator.SetBool("Run", false);
+            if (onMovement == true)
+            {
+                audioSourcePasos.Stop();
+                onMovement = false;
+            }
+        }
 
         // Accion Saltar
         if (Input.GetButtonDown("Jump") && isGounded && personajeID.activeInHierarchy == true)
