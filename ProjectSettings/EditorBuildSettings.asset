@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Project/Scenes/RuinsOfTime.unity
+    guid: 896b0ac2e4b48b74199182ea75273f01
+  - enabled: 1
+    path: Assets/Project/Scenes/SecondLevel.unity
+    guid: 3f685d36e855472478779cab3f607b47
   m_configObjects: {}

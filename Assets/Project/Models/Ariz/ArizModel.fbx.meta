@@ -16,7 +16,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -24,7 +25,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -77,47 +78,52 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 764bf9607af0a2e499c4df2e2f2b6511
-  - 47e882971a015234a8e8bb85c2e3c984
-  - 4f69cae51fecce048aed4db94a8f2c19
-  - 7e67d7112d2121841b0c82ca806a5855
-  - 12dbf59f0d8c2d846bb202af8cb3a19a
-  - 64591ec52c496d641bcddb90d1665150
-  - 30fd986db9b59514f87af079225631ad
-  - a711817f1a8b7ca41a2341d0c44eb249
-  - 6bc268926d1a9f24f8c89e5db81760f1
-  - c014507495bc2d644a33b75ac2945d0d
-  - 98245583bdc34494aa48935b551128a9
-  - 9477203ff4d03be4884dbca8ec3be6df
-  - 319a9c5347229304f8a7888184d6e78e
-  - 1d9eab4f3f231174f824056dde38ef78
-  - 928356a4507aa3b46add7423ea5e2201
-  - f4b1c3b871bc1fc41ae2e459d31b9357
-  - b7ee92c764066994d90d6d53800856a0
-  - fc781afc89970384f9c3aa210201f174
-  - 93ccfeff761083f46b314cae1f114c10
-  - 1def11f95f98889429d3d11bdf8e8382
-  - a628f4315d9eebf43b4b8e2701c80b58
-  - 1fa4ae715862d3d42ac51caf1ff38f10
-  - ded3f748529098c4ebbd10184deca413
-  - 5206ccafcafff6847b1e8920ab1e683e
-  - 897daca32c3301f4a81fc196f66ae23e
-  - c49d8b27416e0284a8593215382bc1df
-  - 721ea8784022cfc4ebd171c1542ccd56
-  - 079bfcaa19c9ce048be2517da1d20c07
-  - 29504aaebbf38734094382f2b7a1a200
-  - 9390df0700a7a35498420fd471a50746
-  - 58035a20a1c888041bd5e0cf47bad735
-  - 2a4333d6256390e46aa3e3dc01eb78bc
-  - 1fea4f440d1bb9c4d853e4c2785ea53b
-  - c90a764b25645c144b70cda600de2f23
-  - 5a996e9a90f3d844a8fe911de4846114
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: ArizModel(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body
+      parentName: ArizModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Eyes
+      parentName: ArizModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Eyelashes
+      parentName: ArizModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hair
+      parentName: ArizModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Tops
+      parentName: ArizModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Shoes
+      parentName: ArizModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bottoms
+      parentName: ArizModel(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -128,13 +134,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
