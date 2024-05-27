@@ -13,8 +13,15 @@ public class UIManagerSecondLeve : MonoBehaviour
     public GameObject controlScreenMP;
     public GameObject audioScreen;
     public GameObject comingSoon;
+    private bool pausa = false;
+
+    //Audio
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     void Start()
     {
+        audioSource.clip = audioClip;
         InitLevel();
     }
 
@@ -32,6 +39,7 @@ public class UIManagerSecondLeve : MonoBehaviour
     public void ShowMainMenuScreen()
     {
         cleanScreen();
+        audioSource.Play();
         mainMenuScreen.SetActive(true);
         Time.timeScale = 1.0f;
     }
@@ -45,16 +53,20 @@ public class UIManagerSecondLeve : MonoBehaviour
     public void ResumeGame()
     {
         cleanScreen();
+        audioSource.Stop();
         HUDScreen.SetActive(true);
         Time.timeScale = 1.0f;
+        pausa = false;
     }
 
 
     public void ShowPauseScreen()
     {
         cleanScreen();
+        audioSource.Play();
         pauseScreen.SetActive(true);
         Time.timeScale = 0.0f;
+        pausa = true;
     }
 
     public void ShowControlScreenMM()
@@ -88,4 +100,13 @@ public class UIManagerSecondLeve : MonoBehaviour
         Time.timeScale = 1.0f;
         Application.Quit();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && pausa == false)
+        {
+            ShowPauseScreen();
+        }
+    }
+
 }

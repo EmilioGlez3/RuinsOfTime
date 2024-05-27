@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject controlScreenMM;
     public GameObject controlScreenMP;
     public GameObject audioScreen;
+    private bool pausa = false;
 
     public PlayableDirector director;
 
@@ -73,6 +74,7 @@ public class UIManager : MonoBehaviour
         AudioSource.Stop();
         HUDScreen.SetActive(true);
         Time.timeScale = 1.0f;
+        pausa = false;
     }
 
 
@@ -82,6 +84,7 @@ public class UIManager : MonoBehaviour
         AudioSource.Play();
         pauseScreen.SetActive(true);
         Time.timeScale = 0.0f;
+        pausa = true;
     }
 
     public void ShowControlScreenMM()
@@ -118,7 +121,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && pausa == false)
         {
             ShowPauseScreen();
         }

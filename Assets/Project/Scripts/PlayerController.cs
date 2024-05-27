@@ -40,6 +40,16 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+    //Audios
+    public AudioSource audioSourceFondo;
+    public AudioClip[] audioClipsFondo;
+    public GameObject Ariz;
+    private bool music = false;
+    private bool music2 = false;
+
+    //Verificacion segunda escena
+    public GameObject segEscena;
+
     private void OnTriggerEnter(Collider other)
     {
         //Recoger Salud
@@ -78,8 +88,59 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    public void JungleMusic()
+    {
+        audioSourceFondo.Stop();
+        audioSourceFondo.clip = audioClipsFondo[0];
+        audioSourceFondo.Play();
+        music = true;
+    }
+
+    public void CaveMusic()
+    {
+        audioSourceFondo.Stop();
+        audioSourceFondo.clip = audioClipsFondo[1];
+        audioSourceFondo.Play();
+        music = false;
+        music2 = true;
+    }
+
+    public void WindMusic()
+    {
+        audioSourceFondo.Stop();
+        audioSourceFondo.clip = audioClipsFondo[2];
+        audioSourceFondo.Play();
+        music2 = false;
+    }
+
     void Update()
     {
+        //Audios//76f en z
+        if (segEscena.activeInHierarchy == true)
+        {
+            //Audio primer escena
+            if (Ariz.transform.position.z > -14.5f && music == false)
+            {
+                JungleMusic();
+            }
+            else if (Ariz.transform.position.z <= -14.5 && music == true)
+            {
+                CaveMusic();
+            }
+        }
+        else if (segEscena.activeInHierarchy == false)
+        {
+            //Audio segunda escena
+            if (Ariz.transform.position.z < 76 && music2 == false)
+            {
+                CaveMusic();
+            }
+            else if (Ariz.transform.position.z >= 76 && music2 == true)
+            {
+                WindMusic();
+            }
+        }
+
         //Barra de salud
         vidaAriz.fillAmount = vidaActual / vidaMaxima;
         Meds.fillAmount = numMedsUI / maxMedsUI;
