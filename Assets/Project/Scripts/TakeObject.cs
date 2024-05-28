@@ -11,6 +11,9 @@ public class TakeObject : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject handAxe;
+    public GameObject backAxe;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Objeto"))
@@ -23,6 +26,8 @@ public class TakeObject : MonoBehaviour
                 other.transform.position = handPoint.transform.position;
                 other.gameObject.transform.SetParent(handPoint.gameObject.transform);
                 pickedObject = other.gameObject;
+                handAxe.SetActive(false);
+                backAxe.SetActive(true);
             }
         }
     }
@@ -38,6 +43,8 @@ public class TakeObject : MonoBehaviour
                 pickedObject.GetComponent<Rigidbody>().isKinematic = false;
                 pickedObject.gameObject.transform.SetParent(null);
                 pickedObject = null;
+                backAxe.SetActive(false);
+                handAxe.SetActive(true);
             }
         }
     }
