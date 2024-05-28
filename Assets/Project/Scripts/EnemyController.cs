@@ -30,24 +30,24 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ArmaAriz") && vidaActual > 60)
+        if (other.CompareTag("ArmaAriz") && vidaActual > 70)
         {
             enemyAnimator.SetTrigger("Pain1");
             vidaActual = vidaActual - 30f;
             Ariz.gameObject.SendMessage("PainGuardianSFX");
         }
-        if (other.CompareTag("Patada") && vidaActual > 60)
+        if (other.CompareTag("Patada") && vidaActual > 70)
         {
             enemyAnimator.SetTrigger("Pain2");
             vidaActual = vidaActual - 5f;
             Ariz.gameObject.SendMessage("PainGuardianSFX");
         }
-        if (other.CompareTag("ArmaAriz") && vidaActual <= 60)
+        if (other.CompareTag("ArmaAriz") && vidaActual <= 70)
         {
             vidaActual = vidaActual - 30f;
             Ariz.gameObject.SendMessage("PainGuardianSFX");
         }
-        if (other.CompareTag("Patada") && vidaActual <= 60)
+        if (other.CompareTag("Patada") && vidaActual <= 70)
         {
             vidaActual = vidaActual - 5f;
             Ariz.gameObject.SendMessage("PainGuardianSFX");
