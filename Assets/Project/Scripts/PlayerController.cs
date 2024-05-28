@@ -9,16 +9,16 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 5f;
-    public float turnSmoothTime = 0.1f;
+    private float speed = 7.9f;
+    private  float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
     public Transform cam;
 
-    public float gravity = -9.8f;
-    public float jumpHeight = 3f;
+    private float gravity = -20f;
+    private float jumpHeight = 1f;
 
     public Transform groundCheck;
-    public float groundDistance = 0.1f;
+    private float groundDistance = 0.3f;
     public LayerMask groundMask;
 
     Vector3 velocity;
@@ -26,8 +26,9 @@ public class PlayerController : MonoBehaviour
     bool isGounded;
 
     public Image vidaAriz;
-    public float vidaMaxima;
-    public float vidaActual;
+    private float danGolpe = 30f;
+    private float vidaMaxima = 150f;
+    private float vidaActual = 150f;
     private bool dead = false;
     public GameObject liveID;
     public PlayableDirector director;
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
         {
             this.gameObject.SendMessage("PainArizSFX");
             animator.SetTrigger("Pain");
-            vidaActual = vidaActual - 30;
+            vidaActual = vidaActual - danGolpe;
         }
 
     }

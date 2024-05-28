@@ -19,8 +19,10 @@ public class EnemyController : MonoBehaviour
     public GameObject liveID;
 
     public Image vidaEnemy;
-    public float vidaMax;
-    public float vidaActual;
+    private float vidaMax = 200f;
+    private float vidaActual = 200f;
+    private float danGolpe = 30f;
+    private float danPatada = 5f;
     private bool dead = false;
     private bool deadID = false;
     public GameObject enemyLiveID;
@@ -34,23 +36,23 @@ public class EnemyController : MonoBehaviour
         if (other.CompareTag("ArmaAriz") && vidaActual > 70)
         {
             enemyAnimator.SetTrigger("Pain1");
-            vidaActual = vidaActual - 30f;
+            vidaActual = vidaActual - danGolpe;
             Ariz.gameObject.SendMessage("PainGuardianSFX");
         }
         if (other.CompareTag("Patada") && vidaActual > 70)
         {
             enemyAnimator.SetTrigger("Pain2");
-            vidaActual = vidaActual - 5f;
+            vidaActual = vidaActual - danPatada;
             Ariz.gameObject.SendMessage("PainGuardianSFX");
         }
         if (other.CompareTag("ArmaAriz") && vidaActual <= 70)
         {
-            vidaActual = vidaActual - 30f;
+            vidaActual = vidaActual - danGolpe;
             Ariz.gameObject.SendMessage("PainGuardianSFX");
         }
         if (other.CompareTag("Patada") && vidaActual <= 70)
         {
-            vidaActual = vidaActual - 5f;
+            vidaActual = vidaActual - danPatada;
             Ariz.gameObject.SendMessage("PainGuardianSFX");
         }
     }
