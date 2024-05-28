@@ -35,14 +35,29 @@ public class UIManagerSecondLeve : MonoBehaviour
     {
         audioSource.clip = audioClip;
         InitLevel();
-        GetVolumes();
+        LoadAudioSettings();
     }
 
-    public void GetVolumes()
+    public void SaveAudioSettings()
     {
-        audioMixer.GetFloat("MusicVolume", out musicVolume);
-        audioMixer.GetFloat("SFXVolume", out sfxVolume);
+        PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+        PlayerPrefs.SetFloat("SFXVolume", sfxVolume);
+        PlayerPrefs.Save();
+    }
 
+    public void LoadAudioSettings()
+    {
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            musicVolume = PlayerPrefs.GetFloat("MusicVolume");
+            sfxVolume = PlayerPrefs.GetFloat("SFXVolume");
+        }
+        else
+        {
+            musicVolume = 0;
+            sfxVolume = 0;
+        }
+        
         musicSlider.value = musicVolume;
         sfxSlider.value = sfxVolume;
     }
@@ -51,12 +66,14 @@ public class UIManagerSecondLeve : MonoBehaviour
     {
         musicVolume = volume;
         audioMixer.SetFloat("MusicVolume", musicVolume);
+        SaveAudioSettings();
     }
 
     public void SetSFXVolume(float volume)
     {
         sfxVolume = volume;
         audioMixer.SetFloat("SFXVolume", sfxVolume);
+        SaveAudioSettings();
     }
 
     public void cleanScreen()
