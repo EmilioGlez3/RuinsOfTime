@@ -174,7 +174,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && pausa == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && pausa == false)
         {
             ShowPauseScreen();
         }
