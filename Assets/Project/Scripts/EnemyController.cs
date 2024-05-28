@@ -24,18 +24,33 @@ public class EnemyController : MonoBehaviour
     private bool dead = false;
     private bool deadID = false;
     public GameObject enemyLiveID;
+    public GameObject Ariz;
 
     public GameObject orbe;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ArmaAriz"))
+        if (other.CompareTag("ArmaAriz") && vidaActual > 60)
+        {
+            enemyAnimator.SetTrigger("Pain1");
+            vidaActual = vidaActual - 30f;
+            Ariz.gameObject.SendMessage("PainGuardianSFX");
+        }
+        if (other.CompareTag("Patada") && vidaActual > 60)
+        {
+            enemyAnimator.SetTrigger("Pain2");
+            vidaActual = vidaActual - 5f;
+            Ariz.gameObject.SendMessage("PainGuardianSFX");
+        }
+        if (other.CompareTag("ArmaAriz") && vidaActual <= 60)
         {
             vidaActual = vidaActual - 30f;
+            Ariz.gameObject.SendMessage("PainGuardianSFX");
         }
-        if (other.CompareTag("Patada"))
+        if (other.CompareTag("Patada") && vidaActual <= 60)
         {
             vidaActual = vidaActual - 5f;
+            Ariz.gameObject.SendMessage("PainGuardianSFX");
         }
     }
 
@@ -60,6 +75,7 @@ public class EnemyController : MonoBehaviour
         if (Vector3.Distance(transform.position, transformPlayer.position) < 3 && liveID.activeInHierarchy == true && dead == false)
         {
             enemyAnimator.SetTrigger("Attack");
+            Ariz.gameObject.SendMessage("AttackGuardianSFX");
         }
         if (liveID.activeInHierarchy == false && dead == false)
         {
@@ -99,6 +115,7 @@ public class EnemyController : MonoBehaviour
                 enemyLiveID.SetActive(false);//Tal vez no se necesite
                 dead = true;
                 deadID = true;
+                Ariz.gameObject.SendMessage("DeadGuardianSFX");
             }
         }
         else if (dead == true && deadID == true)

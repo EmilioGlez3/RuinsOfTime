@@ -21,6 +21,10 @@ public class ActivateSmallDoor : MonoBehaviour
 
     public Animator animator;
 
+    //Audio
+    public AudioSource audioSource;
+    private bool audi = false;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Objeto"))
@@ -43,6 +47,11 @@ public class ActivateSmallDoor : MonoBehaviour
     {
         if (door)
         {
+            if (audi == false)
+            {
+                audioSource.Play();
+                audi = true;
+            }
             DoorPosition = TargetPosition.transform.position - smallDoor.transform.position;
             if (DoorPosition.y < -0.1)
             {
@@ -53,6 +62,10 @@ public class ActivateSmallDoor : MonoBehaviour
                 cam.GetComponent<CinemachineVirtualCamera>().Priority = 10;
                 door = false;
                 smallDoor.SetActive(false);
+                if (audi == true)
+                {
+                    audioSource.Stop();
+                }
             }
         }
     }

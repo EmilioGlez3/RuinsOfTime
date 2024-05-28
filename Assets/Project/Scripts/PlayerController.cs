@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
         //Pelea
         if (other.CompareTag("ArmaEnemy"))
         {
+            this.gameObject.SendMessage("PainArizSFX");
+            animator.SetTrigger("Pain");
             vidaActual = vidaActual - 30;
         }
 
@@ -78,12 +80,14 @@ public class PlayerController : MonoBehaviour
 
     private void RecogerSalud ()
     {
+        this.gameObject.SendMessage("ItemSFX");
         numMeds = numMeds + 1;
         numMedsUI = numMedsUI + 25f;
     }
 
     private void CargarSalud()
     {
+        this.gameObject.SendMessage("CurarSFX");
         vidaActual = vidaActual + 20;
         numMeds = numMeds - 1;
         numMedsUI = numMedsUI - 25f;
@@ -203,6 +207,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGounded && personajeID.activeInHierarchy == true)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            this.gameObject.SendMessage("JumpSFX");
             animator.SetTrigger("Jump");
         }
         //Accion golpe
@@ -214,6 +219,7 @@ public class PlayerController : MonoBehaviour
         //Accion patada
         if (Input.GetButtonDown("Fire2") && animator.GetBool("Run") && personajeID.activeInHierarchy == true)
         {
+            this.gameObject.SendMessage("KickSFX");
             animator.SetTrigger("FlyingKick");
         }
         //Accion curar
@@ -228,6 +234,7 @@ public class PlayerController : MonoBehaviour
         if (vidaActual <= 0f && dead == false)
         {
             animator.SetTrigger("Dead");
+            this.gameObject.SendMessage("DeadArizSFX");
             director.Play();
             liveID.SetActive(false);
             dead = true;
