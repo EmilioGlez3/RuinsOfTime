@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Playables;
@@ -39,6 +40,8 @@ public class UIManager : MonoBehaviour
     //Dificultad
     public GameObject Ariz;
     public GameObject Guardian;
+    private int danAriz;
+    private int danGuardian;
 
     void Start()
     {
@@ -119,7 +122,6 @@ public class UIManager : MonoBehaviour
 
     public void BotonFacil()
     {
-        //Enviar mensajes para dificultad facil
         Ariz.SendMessage("Dificultad", 10);
         Guardian.SendMessage("Dificultad", 50);
         InitGame();
@@ -127,7 +129,6 @@ public class UIManager : MonoBehaviour
 
     public void BotonNormal()
     {
-        //Enviar mensajes para dificultad normal
         Ariz.SendMessage("Dificultad", 30);
         Guardian.SendMessage("Dificultad", 30);
         InitGame();
@@ -135,7 +136,6 @@ public class UIManager : MonoBehaviour
 
     public void BotonDificil()
     {
-        //Enviar mensajes para dificultad dificil
         Ariz.SendMessage("Dificultad", 50);
         Guardian.SendMessage("Dificultad", 25);
         InitGame();
