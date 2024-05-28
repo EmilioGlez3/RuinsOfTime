@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject controlScreenMP;
     public GameObject audioScreenMP;
     public GameObject audioScreenMM;
+    public GameObject difficultyScreen;
     private bool pausa = false;
 
     public PlayableDirector director;
@@ -34,6 +35,10 @@ public class UIManager : MonoBehaviour
     private float musicVolume;
     private float sfxVolume;
     public AudioMixer audioMixer;
+
+    //Dificultad
+    public GameObject Ariz;
+    public GameObject Guardian;
 
     void Start()
     {
@@ -93,6 +98,7 @@ public class UIManager : MonoBehaviour
         controlScreenMP.SetActive(false);
         audioScreenMP.SetActive(false);
         audioScreenMM.SetActive(false);
+        difficultyScreen.SetActive(false);
     }
 
     public void ShowMainMenuScreen()
@@ -102,6 +108,37 @@ public class UIManager : MonoBehaviour
         AudioSource.Play();
         mainMenuScreen.SetActive(true);
         Time.timeScale = 1.0f;
+    }
+
+    public void ShowDifficultyScreen()
+    {
+        personaje.SetActive(false);
+        cleanScreen();
+        difficultyScreen.SetActive(true);
+    }
+
+    public void BotonFacil()
+    {
+        //Enviar mensajes para dificultad facil
+        Ariz.SendMessage("Dificultad", 10);
+        Guardian.SendMessage("Dificultad", 50);
+        InitGame();
+    }
+
+    public void BotonNormal()
+    {
+        //Enviar mensajes para dificultad normal
+        Ariz.SendMessage("Dificultad", 30);
+        Guardian.SendMessage("Dificultad", 30);
+        InitGame();
+    }
+
+    public void BotonDificil()
+    {
+        //Enviar mensajes para dificultad dificil
+        Ariz.SendMessage("Dificultad", 50);
+        Guardian.SendMessage("Dificultad", 25);
+        InitGame();
     }
 
     public void ShowMainMenuScreenOtherMenu()

@@ -19,10 +19,10 @@ public class EnemyController : MonoBehaviour
     public GameObject liveID;
 
     public Image vidaEnemy;
-    private float vidaMax = 200f;
-    private float vidaActual = 200f;
-    private float danGolpe = 30f;
-    private float danPatada = 5f;
+    private int vidaMax = 200;
+    private int vidaActual = 200;
+    private int danGolpe;
+    private int danPatada;
     private bool dead = false;
     private bool deadID = false;
     public GameObject enemyLiveID;
@@ -30,6 +30,13 @@ public class EnemyController : MonoBehaviour
 
     public GameObject orbe;
     public GameObject arma;
+
+    public void Dificultad(int danGol)
+    {
+        int danPat = danGol - 20;
+        danGolpe = danGol;
+        danPatada = danPat;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -90,7 +97,8 @@ public class EnemyController : MonoBehaviour
     {
         if (dead == false)
         {
-            vidaEnemy.fillAmount = vidaActual / vidaMax;
+
+            vidaEnemy.fillAmount = (float)vidaActual / (float)vidaMax;
             if (door.activeInHierarchy == false && liveID.activeInHierarchy == true)
             {
                 if (currentState != EnemyState.CHASE)

@@ -26,9 +26,9 @@ public class PlayerController : MonoBehaviour
     bool isGounded;
 
     public Image vidaAriz;
-    private float danGolpe = 30f;
-    private float vidaMaxima = 150f;
-    private float vidaActual = 150f;
+    private int danGolpe;
+    private int vidaMaxima = 150;
+    private int vidaActual = 150;
     private bool dead = false;
     public GameObject liveID;
     public PlayableDirector director;
@@ -58,6 +58,11 @@ public class PlayerController : MonoBehaviour
     public GameObject segEscena;
 
     public GameObject arma;
+
+    public void Dificultad(int danio)
+    {
+        danGolpe = danio;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -167,7 +172,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Barra de salud
-        vidaAriz.fillAmount = vidaActual / vidaMaxima;
+        vidaAriz.fillAmount = (float)vidaActual / (float)vidaMaxima;
         Meds.fillAmount = numMedsUI / maxMedsUI;
 
         //Física saltos
