@@ -5147,6 +5147,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.5
   m_Center: {x: 0.11263794, y: -0.36273912, z: 0.03742839}
+--- !u!1 &520198779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8013299961703127913, guid: 7699c868847ead94c9e1d16c69adfe5d, type: 3}
+  m_PrefabInstance: {fileID: 1041739374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534078411
 GameObject:
   m_ObjectHideFlags: 0
@@ -5706,7 +5711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601766032}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15876444, y: -0.000000016988144, z: 0.0000000027317617, w: 0.9873165}
+  m_LocalRotation: {x: 0.15876444, y: 0.000000016988144, z: -0.0000000027317617, w: 0.9873165}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9688,7 +9693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079683625}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17669697, y: -0.00000001693565, z: 0.0000000030403158, w: 0.9842653}
+  m_LocalRotation: {x: 0.17669696, y: 0.00000001693564, z: -0.0000000030403142, w: 0.9842653}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10288,6 +10293,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bd5653e52c4636e4aa3b0ced8f49a18d, type: 3}
   - {fileID: 8300000, guid: 1deb201b8bf8f89479323a74e421150b, type: 3}
   segEscena: {fileID: 309086426}
+  arma: {fileID: 520198779}
 --- !u!95 &1140452823
 Animator:
   serializedVersion: 5
@@ -15083,7 +15089,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666343633}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15876444, y: -0.000000022473202, z: 0.0000000036137804, w: 0.9873165}
+  m_LocalRotation: {x: 0.15876444, y: 0.000000022473202, z: -0.0000000036137804, w: 0.9873165}
   m_LocalPosition: {x: 16.36, y: 9.82, z: 44.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

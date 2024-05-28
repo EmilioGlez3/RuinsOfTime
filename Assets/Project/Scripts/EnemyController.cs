@@ -27,6 +27,7 @@ public class EnemyController : MonoBehaviour
     public GameObject Ariz;
 
     public GameObject orbe;
+    public GameObject arma;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -115,6 +116,7 @@ public class EnemyController : MonoBehaviour
                 enemyLiveID.SetActive(false);//Tal vez no se necesite
                 dead = true;
                 deadID = true;
+                arma.SetActive(false);
                 Ariz.gameObject.SendMessage("DeadGuardianSFX");
             }
         }

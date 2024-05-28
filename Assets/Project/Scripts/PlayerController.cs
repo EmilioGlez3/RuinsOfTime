@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour
     //Verificacion segunda escena
     public GameObject segEscena;
 
+    public GameObject arma;
+
     private void OnTriggerEnter(Collider other)
     {
         //Recoger Salud
@@ -237,6 +239,7 @@ public class PlayerController : MonoBehaviour
             this.gameObject.SendMessage("DeadArizSFX");
             director.Play();
             liveID.SetActive(false);
+            arma.SetActive(false);
             dead = true;
         }
 
