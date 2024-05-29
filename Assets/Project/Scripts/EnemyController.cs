@@ -84,11 +84,13 @@ public class EnemyController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, transformPlayer.position) < 3 && liveID.activeInHierarchy == true && dead == false)
         {
+            arma.SetActive(true);
             enemyAnimator.SetTrigger("Attack");
             Ariz.gameObject.SendMessage("AttackGuardianSFX");
         }
         if (liveID.activeInHierarchy == false && dead == false)
         {
+            arma.SetActive(false);
             currentState = EnemyState.PATROL;
         }
     }
