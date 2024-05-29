@@ -35,12 +35,20 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Textura:
+        m_Texture: {fileID: 2800000, guid: 9d58d26989018ea40a44aad0ad146329, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _GlowPower: 3
+    - _GlowPower: 2
+    - _Metallic: 0
+    - _Smoothness: 0
     m_Colors:
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _GlowColor: {r: 0, g: 5.385982, b: 5.656854, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
