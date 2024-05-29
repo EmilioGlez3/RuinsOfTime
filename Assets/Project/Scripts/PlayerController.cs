@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private float maxMedsUI = 100f;
 
     private Animator animator;
+    private AnimatorStateInfo animatorStateInfo;
     public GameObject personajeID;
 
     //Audios
@@ -77,10 +78,15 @@ public class PlayerController : MonoBehaviour
         }
 
         //Pelea
-        if (other.CompareTag("ArmaEnemy"))
+        if (other.CompareTag("ArmaEnemy") && !animatorStateInfo.IsName("Running"))
         {
             this.gameObject.SendMessage("PainArizSFX");
             animator.SetTrigger("Pain");
+            vidaActual = vidaActual - danGolpe;
+        }else if (other.CompareTag("ArmaEnemy") && animatorStateInfo.IsName("Running"))
+        {
+            this.gameObject.SendMessage("PainArizSFX");
+            animator.SetTrigger("Pain1");
             vidaActual = vidaActual - danGolpe;
         }
 
@@ -187,7 +193,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
-        if(direction.magnitude >= 0.1f && personajeID.activeInHierarchy == true)
+        if (direction.magnitude >= 0.1f && personajeID.activeInHierarchy == true)
         {
             if (onMovement == false)
             {
@@ -211,6 +217,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        animatorStateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
         // Accion Saltar
         if (Input.GetButtonDown("Jump") && isGounded && personajeID.activeInHierarchy == true)
         {
@@ -218,11 +226,15 @@ public class PlayerController : MonoBehaviour
             this.gameObject.SendMessage("JumpSFX");
             animator.SetTrigger("Jump");
         }
-        //Accion golpe
-        if (Input.GetButtonDown("Fire1") && personajeID.activeInHierarchy == true)
+        //Accion golpe Idle
+        if (Input.GetButtonDown("Fire1") && personajeID.activeInHierarchy == true && !animatorStateInfo.IsName("Running"))
         {
             this.gameObject.SendMessage("AttackSFX");
             animator.SetTrigger("Attack");
+        }else if (Input.GetButtonDown("Fire1") && personajeID.activeInHierarchy == true && animatorStateInfo.IsName("Running"))
+        {
+            this.gameObject.SendMessage("AttackSFX");
+            animator.SetTrigger("Attack1");
         }
         //Accion patada
         if (Input.GetButtonDown("Fire2") && animator.GetBool("Run") && personajeID.activeInHierarchy == true)

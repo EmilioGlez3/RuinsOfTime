@@ -3004,6 +3004,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -3173587787750849507, guid: 52526ca477ab58f47b11ee121c63ab56, type: 2}
     value: {fileID: 870723669}
+  - key: {fileID: 5348168619744157843, guid: 52526ca477ab58f47b11ee121c63ab56, type: 2}
+    value: {fileID: 336447876}
   m_ExposedReferences:
     m_References:
     - 18ea82bcede5ec246b751cee1dc49c46: {fileID: 67228093}
@@ -9082,12 +9084,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944759428}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0013919263, y: -0.99245405, z: 0.122086726, w: -0.011316237}
-  m_LocalPosition: {x: 0.045, y: 1.483, z: -1.988}
-  m_LocalScale: {x: 0.35714284, y: 0.3571428, z: 0.35714287}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.38, y: -2.62, z: -54.48}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1350456510}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &944759430
 Rigidbody:
@@ -9772,7 +9774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035293889}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14082696, y: -0.000000017034907, z: 0.0000000024231226, w: 0.9900342}
+  m_LocalRotation: {x: 0.14082696, y: 0.000000017034903, z: -0.000000002423122, w: 0.9900342}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -26735,6 +26737,18 @@ PrefabInstance:
       value: Guardian
       objectReference: {fileID: 0}
     - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.3
       objectReference: {fileID: 0}
@@ -26744,7 +26758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -42.08
+      value: -70.3
       objectReference: {fileID: 0}
     - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26752,15 +26766,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -26807,9 +26821,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 945809628}
-    - targetCorrespondingSourceObject: {fileID: 8965195071228164027, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 944759429}
     - targetCorrespondingSourceObject: {fileID: 7085799240059170712, guid: 510dee5ad3454b546950fe943880fbc5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1278662163}
@@ -26985,8 +26996,9 @@ SceneRoots:
   - {fileID: 1666343636}
   - {fileID: 1892647134}
   - {fileID: 352841756}
-  - {fileID: 5822279450187617076}
   - {fileID: 1284434611}
+  - {fileID: 944759429}
+  - {fileID: 5822279450187617076}
   - {fileID: 84255092}
   - {fileID: 300426128}
   - {fileID: 749360979}

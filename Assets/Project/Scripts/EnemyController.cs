@@ -128,6 +128,7 @@ public class EnemyController : MonoBehaviour
                 deadID = true;
                 arma.SetActive(false);
                 Ariz.gameObject.SendMessage("DeadGuardianSFX");
+                Destroy(this.gameObject, 4);
             }
         }
         else if (dead == true && deadID == true)
