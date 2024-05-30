@@ -44,11 +44,11 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _GlowPower: 2
-    - _Metallic: 0
-    - _Smoothness: 0
+    - _GlowPower: 1.5
+    - _Metallic: 1
+    - _Smoothness: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0}
-    - _GlowColor: {r: 0, g: 5.385982, b: 5.656854, a: 0}
+    - _GlowColor: {r: 0.36141482, g: 0.7053522, b: 0.80146384, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
