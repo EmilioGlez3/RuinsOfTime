@@ -282,6 +282,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8055513003736115497, guid: dc19ad36ec6761c4eb31f2f45ddb1701, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 748740b49c80f80429ae32e868533e47, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2819,6 +2823,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3413869448590102175, guid: 80b42e979faab3a48928d25b43673bc1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 748740b49c80f80429ae32e868533e47, type: 3}
     - target: {fileID: 8004314071504119908, guid: 80b42e979faab3a48928d25b43673bc1, type: 3}
       propertyPath: m_Name
       value: PanelControlesMP (1)
